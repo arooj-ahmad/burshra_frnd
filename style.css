@@ -1,0 +1,210 @@
+/* Reset and Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #4a4a4a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- MUSIC BUTTON --- */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid #d15a7b;
+    color: #d15a7b;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(209, 90, 123, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+.music-btn:hover {
+    background: #d15a7b;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* --- 1. INTRO SCREEN --- */
+.intro-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.intro-screen.fade-out { opacity: 0; visibility: hidden; }
+.envelope {
+    text-align: center;
+    cursor: pointer;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite;
+}
+.envelope:hover { transform: scale(1.05); }
+.envelope-icon { font-size: 5rem; margin-bottom: 15px; }
+.envelope p { font-size: 1.2rem; color: #fff; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* --- 2. MAIN CARD --- */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    width: 100%;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: fadeIn 1.5s ease-out;
+}
+.card.hidden { display: none; }
+
+/* Header Styles */
+.header { text-align: center; margin-bottom: 30px; }
+.header h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #d15a7b; margin-bottom: 10px; line-height: 1.2; }
+.header .subtitle { font-size: 1.1rem; color: #888; font-style: italic; }
+
+/* --- GALLERY SECTION --- */
+.gallery-section { margin-bottom: 40px; text-align: center; }
+.gallery-title { font-family: 'Dancing Script', cursive; color: #d15a7b; font-size: 2.2rem; margin-bottom: 20px; }
+.gallery-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+/* Polaroid Styles */
+.polaroid {
+    background: white; padding: 12px 12px 20px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 250px; border-radius: 4px;
+}
+.rotate-left { transform: rotate(-3deg); }
+.rotate-right { transform: rotate(3deg); }
+.polaroid:hover { transform: rotate(0deg) scale(1.08); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); z-index: 2; }
+.polaroid img { width: 100%; height: auto; border-radius: 2px; border: 1px solid #eee; }
+.polaroid .caption { font-family: 'Dancing Script', cursive; text-align: center; font-size: 1.3rem; color: #d15a7b; margin-top: 12px; font-weight: bold; }
+
+/* Text Content Styles */
+.message-content p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
+.final-wish { font-weight: 500; color: #d15a7b; font-size: 1.15rem !important; text-align: center !important; margin-top: 30px; padding-top: 20px; border-top: 2px dashed #ffb6c1; }
+.signature { font-family: 'Dancing Script', cursive; font-size: 2rem !important; text-align: center !important; color: #d15a7b; margin-top: 20px; }
+
+/* --- SURPRISE BUTTON STYLE --- */
+.surprise-btn-container { text-align: center; margin: 30px 0 10px 0; }
+.action-btn {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    color: #d15a7b;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    animation: float 3s ease-in-out infinite;
+}
+.action-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 154, 158, 0.6);
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- NAYA INLINE SURPRISE BOX (Button ke neeche khulne wala) --- */
+.inline-surprise-box {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    margin-top: 0;
+    background: #fff0f5;
+    border-radius: 15px;
+    padding: 0 20px;
+    border: 2px dashed transparent;
+}
+
+.inline-surprise-box.show {
+    max-height: 1200px; /* Badi height taake image aur text fit ho jaye */
+    opacity: 1;
+    margin-top: 20px;
+    padding: 20px;
+    border-color: #ffb6c1;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+}
+
+.inline-surprise-box h3 {
+    font-family: 'Dancing Script', cursive;
+    color: #d15a7b;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.inline-surprise-box p {
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* --- IMAGE STYLE --- */
+.popup-image-container {
+    margin: 15px auto;
+    max-width: 95%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border: 3px solid #fff;
+}
+.popup-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+
+/* Floating Hearts */
+.heart { position: fixed; bottom: -20px; font-size: 24px; color: #ffb6c1; animation: floatUp 4s linear forwards; z-index: 1; }
+@keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .card { padding: 25px 20px; }
+    .header h1 { font-size: 2.2rem; }
+    .message-content p { font-size: 0.95rem; text-align: left; }
+    .polaroid { max-width: 200px; }
+    .signature { font-size: 1.6rem !important; }
+    .music-btn { top: 10px; right: 10px; padding: 8px 12px; font-size: 0.9rem; }
+    .inline-surprise-box h3 { font-size: 1.6rem; }
+}

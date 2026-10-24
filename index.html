@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Surprise for You! 🎀</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="music/song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <button id="music-btn" class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <!-- 1. THE INTRO SCREEN -->
+    <div id="intro-screen" class="intro-screen">
+        <div class="envelope" onclick="openSurprise()">
+            <div class="envelope-icon">💌</div>
+            <p>Click to open your surprise...</p>
+        </div>
+    </div>
+
+    <!-- Floating hearts background -->
+    <div id="hearts-container"></div>
+
+    <!-- 2. THE MAIN CARD -->
+    <main class="card hidden" id="main-card">
+        <header class="header">
+            <h1>Ahhhhh Congratulations! 🥹🩷</h1>
+            <p class="subtitle">For my lovely person...</p>
+        </header>
+
+        <!-- The Image Gallery Section -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Your Beautiful Achievements ✨</h2>
+            <div class="gallery-container">
+                <div class="polaroid rotate-left">
+                    <img src="images/achievement1.jpeg" alt="Tendoz Views and Likes">
+                    <p class="caption">2,167 Views! 🥹</p>
+                </div>
+                <div class="polaroid rotate-right">
+                    <img src="images/achievement2.jpeg" alt="Instagram Reach Insights">
+                    <p class="caption">Right Audience! 🎯</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Text Message -->
+        <section class="message-content">
+            <p>Ap ko pata hai, kuch khushiyan aisi hoti hain jinhein words mein explain karna bohat mushkil hota hai, aur ap ki yeh achievement bhi unhi khushiyon mein se aik hai. 🥹🤍 likeeee, look at youuu!! ap ki mehnat, ap ka sabr, ap ki consistency aur ap ka apne khwabon ke liye koshish karte rehna, aur aaj ap ko uska itna pyara result mil raha hai. 😭🎀 ap ki har choti si achievement bhi kitni special hai. 🫶🏻💗</p>
+
+            <p>Ap ko shayad sirf views nazar aa rahe hon, lekin mere liye in views ke peechay ap ki mehnat, ap ki umeedein, ap ka sabr aur woh saari koshishein hain jo shayad kisi ne notice bhi na ki hon. 🥺❤️‍🩹 har woh din jab ap ne apni post upload ki aur umeed lagaye rakhi, har woh lamha jab ap ne baar baar apne views check kiye, har woh waqt jab ap ne socha hoga ke pata nahi meri mehnat kab rang layegi, aur phir bhi ap ne koshish karna nahi chora... yeh sab bhi toh ap ki journey ka hissa hai na. 🥹🤍 aur aaj jab ap ko apni mehnat ka itna khoobsurat result mil raha hai, toh dil karta hai ap ko bataun ke pleaseeee, is moment ko dil khol kar enjoy karein, kyun ke ap is khushi ke haqdar hain. 😭🫂🎀</p>
+
+            <p>I know ke social media par kamyabi haasil karna hamesha aasan nahi hota. kabhi numbers dil khush kar dete hain, kabhi wahi numbers insaan ko udaas kar dete hain... lekin dekhein na, ap aaj bhi yahan hain, koshish kar rahe hain, seekh rahe hain aur apne liye aik behtar kal banane ki taraf barh rahe hain. 🥹🌷 and honestly, that itself is something beautiful. <strong>"I think my videos are reaching to the right audience"</strong> — aur yeh sab se bari baat hai! 🥹🫶🏻</p>
+
+            <p>Kashhhh ap ko andaza ho ke main ap ki is khushi ke liye kitna khush hoon. 😭💗 ap ki achievement dekh kar dil se dua nikalti hai ke yeh allah, in ko is se bhi zyada kamyabi dena... ameen summa ameen. 🤲🏻🤍✨</p>
+
+            <p>And please, meri aik baat yaad rakhiye ga... 🥺🫂 ap ko har dafa khud ko prove karne ki zaroorat nahi hai. ap ka safar ap ka apna hai, ap ki timing ap ki apni hai, aur ap ki success ki story bhi apne hi andaz mein likhi jaye gi. kisi aur ke numbers dekh kar apni progress ko chota mat samajhna, kyun ke har phool apne waqt par khilta hai. 🌷🤍</p>
+
+            <p>I hope ke ap ko zindagi mein aise log milain jo ap ki kamyabi par dil se khush hon... aur ap ke liye meri taraf se wohi baat hai: ap ki mehnat nazar aati hai, ap ki progress khushi deti hai, aur ap ki kamyabi celebrate karne ka dil karta hai. 🩷✨ literally agr AP Hoti uni ma TU ma Karti celebrate 🙈🙈🙈🤗🤗</p>
+
+            <p>May allah protect u from every evil eye, har buri nazar se bachaye, ap ki mehnat mein barkat de... aur may ap ka har woh khwab poora ho jo ap ne kisi ko bataye baghair apne dil mein sambhal kar rakha hua hai. 🥹🌙✨</p>
+
+            <p class="final-wish">Once again, bohattttt bohattttt congratulations ap ko, my lovely personnnn!! 😭😭🩷🎀🫂 ap ki yeh achievement ap ke liye aur bhi bari khushiyon ka starting point banay.</p>
+            
+            <!-- SURPRISE BUTTON (Text ke bilkul neeche) -->
+            <div class="surprise-btn-container">
+                <button id="text-surprise-btn" class="action-btn" onclick="toggleInlineSurprise()">
+                    🎁 Click Here for a Surprise! 🎁
+                </button>
+            </div>
+
+            <!-- NAYA INLINE SURPRISE CONTENT (Jo button ke theek neeche khulega) -->
+            <div id="inline-surprise-content" class="inline-surprise-box">
+                <div class="modal-emoji">🫂💖</div>
+                <h3>Ek Choti Si Baat... 🌸</h3>
+                <p>Ap ne shuru se le kar ab tak jo bhi parha, woh sab sach hai. Main apni zindagi mein apke jaisa mehnati aur pyaara insaan rakh kar bohat lucky hoon.</p>
+                
+                <div class="popup-image-container">
+                    <img src="images/achievement2.jpeg" alt="Instagram Insights">
+                </div>
+
+                <div class="popup-wish">
+                    "Never forget how far you've come. Ek din yeh chote numbers bohat bade ban jayenge, lekin mera pyaar aur support hamesha aisa hi rahega. Keep shining, my star! 🌟"
+                </div>
+            </div>
+
+            <p class="signature">So so so proud of youuuu! 🫶🏻✨</p>
+        </section>
+    </main>
+
+    <!-- YAHAN SE PEHLA POP-UP MODAL POORI TARAH HATA DIYA GAYA HAI -->
+
+    <script src="script.js"></script>
+</body>
+</html>
